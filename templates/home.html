@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Adoption Agency{% endblock %}
+
+
+{% block content %}
+<h1>Adopt a pet</h1>
+<ul>
+    {% for pet in pet %}
+    <img class="w-25 img-thumbnail" src ="{{pet.img_url}}">
+    <a href="{{ url_for('display_edit_pet', id = pet.id)}}">{{pet.name}}</a>
+    {%if pet.available %} <b>is available!</b> {% endif %}
+    {% else %}
+    <p>No pets yet.</p> 
+    {% endfor %}
+</ul>
+
+{% endblock %}
